@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>wa3 - UnRAID</title>
+        <link rel="stylesheet" href="../css/ica3a.css">
+    </head>
+    <body>
+        <main>
+        <header>
+        <h1>Unraid</h1>
+        <p>source: <a href="https://en.wikipedia.org/wiki/Unraid">Wikipedia</a>.</p>
+        <nav>
+            <a href="#features">Features</a> - 
+            <a href="#technical-specifications">Technical specifications</a> - 
+            <a href="#gpl-compliance">GPL Compliance</a>
+        </nav>
+        </header>
+        <section id="features">
+            <h2>Features</h2>
+            <h3>Dashboard management</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Unraid-6.12.8-dashboard.png/300px-Unraid-6.12.8-dashboard.png" alt="Unraid Dashboard">
+            <p>Usage of Unraid is primarily performed through a web interface (known also as the Unraid <a href="https://en.wikipedia.org/wiki/Dashboard_(computing)">dashboard</a>) that offers full-control over the Unraid operating system. The dashboard offers basic controls for common tasks as well as advanced controls for the more technological advanced user; CLI or console management is also possible. The Unraid dashboard is particularly useful flagship feature to users who are new or inexperienced in operating Linux, home servers, NAS, Docker, and more.</p>
+            <h3>Community applications</h3>
+            <p>One of the more popular features of Unraid is the extensive catalog of community applications (apps) or plugins that users can install and run on their Unraid systems. This community-oriented focus allows Unraid to provide a vast catalog of community apps while Unraid provides moderation to ensure users are safe, compatible and have a consistent experience. Specifically, Unraid community apps are created via plugins or Docker containers providing the capability of extending Unraid in nearly any capacity.</p>
+            <h3>Core capabilities</h3>
+            <p>Unraid's capabilities are separated into three core parts: software-defined NAS, application server, and localized virtualization.</p>
+            <h4>Software-defined NAS</h4>
+            <p>Unraid's primary feature is the ability to easily create and manage storage arrays in hardware-agnostic ways, allowing users to use nearly any combination of hard drives to create a disk array, regardless of model, capacity, or connection type. Unraid's NAS functionality consists of a parity-protected array, user shares, and an optional cache pool(s).</p>
+            <p>Since Unraid saves data to individual drives rather than spreading single files out over multiple drives, users can create shares, which are groups of files that can be written to multiple drives (as determined by the user or system) and allow easy access and management by users. This style of filesystem eliminates the use of traditional RAID-based technologies which provides the ability to scale on-demand by adding more drives while not needing to rebalance existing data.</p>
+            <h4>Application server</h4>
+            <p>Unraid utilizes Docker to allow users to create and manage Docker containers to host applications on the system. In doing so, this allows Unraid users to host applications that may not support the Unraid operating system directly, could be difficult to install & remove, or may not behave correctly with other applications running on the same system. This provides Unraid users with the ability to install, manage, and host any images from the Docker Hub. For example, a user could use a pre-made Docker container to host applications such as Nextcloud, Plex, Jellyfin, and many others.</p>
+            <h4>Virtualization Host</h4>
+            <p>Unraid is designed as a virtualization host, leveraging a hypervisor to partition resources to virtualized guests in a secure and isolated manner. Differing from Docker containers, virtual machines in Unraid offer unique benefits such as running non-Linux operating systems (e.g. Windows), driver support for physical devices independent of Unraid, etc. while offering the same benefits of isolated access to the partitioned resources. The implementation of <a href="https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine">kernel-based virtual machine (KVM)</a> within Unraid includes QEMU, libvirt, VFIO*, VirtIO, VirtFS, and Open Virtual Machine Firmware (OVMF). These implementations of KVM provide for a wide array of resources to be assigned to virtual machines ranging from storage, compute, network, memory, PCI devices, USB devices, and more. Additionally, Unraid provides support for emulating different machine types such as i440fx, Q35, etc. which provide support for CPU pinning, SSD optimization, and more.</p>
+        </section>
+        <section id="technical-specifications">
+            <h2>Technical specifications</h2>
+            <h3>Operating System/Licensing</h3>
+            <p>Unraid is based on Slackware Linux. Supported filesystems: XFS, Btrfs, ZFS and ReiserFS. ReiserFS is only for legacy reasons and for backward compatibility, and as a main-rule, shouldn't be used on new implementations.</p>
+            <p>Unraid installs to and boots from a USB flash device where it's then loaded into a root RAM file system. All configuration data related to the operating system is stored on the flash device and loaded at the same time as the operating system itself. This style of operation allows for operation on nearly any X86-64 bit system with minimal use of system resources. Additionally, the Unraid user license is attached to the users specific flash device, specifically a USB flash drive, via GUID.</p>
+        </section>
+        <section id="gpl-compliance">
+            <h2>GPL Compliance</h2>
+            <p>Unraid uses the Linux kernel and its filesystems. It most notably contains a greatly modified version of Linux md facilities named md_unraid. The source code is distributed as part of the USB system image and is visible in the Unraid OS in /usr/src. binwalk can be used to extract the file from bzroot without booting.</p>
+        </section>
+        </main>
+        
+    </body>
+</html>
