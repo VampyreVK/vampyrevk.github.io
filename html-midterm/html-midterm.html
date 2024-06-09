@@ -1,65 +1,101 @@
-<html>
-<head>
-    
-    <html language="en">
-    
-    <title>Error-Filled Page</title>
-    
-<body>
-    <h1>Welcome to My Error-Filled Page
-    
-    This is a paragraph with mismatched tags and missing closing tags.</p>
-    
-    <ol>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
-        <li>Item 5</li>
-        <li>Item 6</li>
-        <li>Item 7</li>
-        <li>Item 8</li>
-        <li>Item 9</li>
-        <li>Item 10</li>
-    </ul>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Error-Filled Page</title>
+    </head>
+    <body>
+        <h1>Welcome to My Error-Filled Page</h1>
+        
+        <p>This is a paragraph with mismatched tags and missing closing tags.</p>
+        
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+            <li>Item 6</li>
+            <li>Item 7</li>
+            <li>Item 8</li>
+            <li>Item 9</li>
+            <li>Item 10</li>
+        </ol>
 
-    <p>This is another paragraph without proper indentation.
-    
-    <img src="image.jpg">
+        <p>This is another paragraph without proper indentation.</p>
+        
+        <img alt="The Two States of Every Programmer" src="image.jpg">
 
-    <a href="https://www.example.com" target="_blank">Click me!</img>
+        <a href="https://www.example.com" target="_blank" rel="noopener">Click me!</a>
 
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-        </tr>
-        <tr>
-            <td>John</td>
-            <td>25<td>
-        </tr>
-        <tr>
-            <td>Jane</td>
-            <td>30</td>
-        </tr>
-    
-    <img source="error.jpeg" alt="Error Image">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>25<td>
+                </tr>
+                <tr>
+                    <td>Jane</td>
+                    <td>30</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <img src="error.jpeg" alt="Error Image">
 
-    <center>This is centered text.</center>
+        <p style="text-align: center;">This is centered text.</p>
 
-    <p bgcolor="lightgray">Text</p>
+        <p style="background-color: lightgray;">Text</p>
 
-    <input type="button" value="Click me">
+        <input type="button" value="Click me">
 
-    <!-- This is an unclosed comment
+        <!-- This is an unclosed comment -->
 
-    <a href="#">Link without closing tag
+        <a href="#">Link without closing tag</a>
 
-    <p><em>Underlined text</p></em>
+        <p><u>Underlined text</u></p>
 
-    <dl>
-        <li>Descriptive Item Title</li>
-        <li>Descriptive Item Text</li>
-    </dl>
-</body>
+        <dl>
+            <dt>Descriptive Item Title</dt>
+            <dd>Descriptive Item Text</dd>
+        </dl>
+    </body>
 </html>
+
+
+<!-- 
+    I found more than 20 errors, but since they generally seemed distinct enough to not be combined further, I thought it was fine to leave as-is. :)
+    Errors Fixed:
+    1 - Missing <!DOCTYPE html>; added to the top of the page.
+    2 - Missing <meta charset="UTF-8">; added charset meta element.
+    3 - Duplicate HTML head opening tags; removed first one with missing lang tag.
+    4 - Language tag is incorrect; changing to lang instead.
+    5 - html tag with lang is inside head; moved to outside head.
+    6 - duplicate HTML closing tag; removing first tag attached to opening html tag.
+    7 - Missing Viewport element; added viewport meta element.
+    8 - Missing head closing tag; added head closing tag underneath the title
+    9 - Missing <h1> closing tag; added closing tag.
+    10 - Missing <p> opening tag; added opening tag.
+    11 - <ol> tag is closed by a </ul> tag, changing closing tag to </ol>.
+    12 - <missing </p> closing tag; added closing tag.
+    13 - <img> tag missing alt text; added alt text.
+    14 - Because of the target="_blank" attrubute; rel="noopener" is needed; Added.
+    15 - <a> tag is closed by an </img> tag; replacing with </a> tag.
+    16 - Table is missing <thead> and <tbody> attributes; added <thead> and <tbody> opening/closing tags.
+    17 - Table is missing closing tag; added closing tag.
+    18 - Source Tag is incorrect for images; changed to src.
+    19 - <center> is an incorrect tag to use for centering text, changed to inline CSS within a <p> element, as no external CSS file is present.
+    20 - Missing style tag for <p> bgcolor, incorrect formatting. Added style tag around bgcolor and renamed to background-color
+    21 - Unclosed comment, Added closing tag to comment.
+    22 - Link is missing closing tag. Added closing </a> tag
+    23 - <em> and <p> tags are not in the correct order. Adjusting to <p><em>...<em><p>
+    24 - <em> tag is incorrect for underlined text, changed to <u>
+    25 - <li> tags are incorrect for a discriptive list, changing to <dt> and <dd> for the title and description respectively.
+-->
