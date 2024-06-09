@@ -66,36 +66,34 @@
             <dt>Descriptive Item Title</dt>
             <dd>Descriptive Item Text</dd>
         </dl>
+        <h3>Errors Fixed:</h3>
+        <p>*I found more than 20 errors, but since they generally seemed distinct enough to not be combined further, I thought it was fine to leave as-is.</p>
+        <ol>
+            <li>Missing &lt;!DOCTYPE html&gt;; added to the top of the page.</li>
+            <li>Missing &lt;meta charset="UTF-8"&gt;; added charset meta element.</li>
+            <li>Duplicate HTML head opening tags; removed first one with missing lang tag.</li>
+            <li>Language tag is incorrect; changing to lang instead.</li>
+            <li>html tag with lang is inside head; moved to outside head.</li>
+            <li>duplicate HTML closing tag; removing first tag attached to opening html tag.</li>
+            <li>Missing Viewport element; added viewport meta element.</li>
+            <li>Missing head closing tag; added head closing tag underneath the title</li>
+            <li>Missing &lt;h1&gt; closing tag; added closing tag.</li>
+            <li>Missing &lt;p&gt; opening tag; added opening tag.</li>
+            <li>&lt;ol> tag is closed by a &lt;/ul&gt; tag, changing closing tag to &lt;/ol&gt;.</li>
+            <li>Missing &lt;/p&gt; closing tag; added closing tag.</li>
+            <li>&lt;img&gt; tag missing alt text; added alt text.</li>
+            <li>Because of the target="_blank" attrubute; rel="noopener" is needed; Added.</li>
+            <li>&lt;a&gt; tag is closed by an &lt;/img&gt; tag; replacing with &lt;/a&gt; tag.</li>
+            <li>Table is missing &lt;thead&gt; and &lt;tbody&gt; attributes; added &lt;thead&gt; and &lt;tbody&gt; opening/closing tags.</li>
+            <li>Table is missing closing tag; added closing tag.</li>
+            <li>Source Tag is incorrect for images; changed to src.</li>
+            <li>&lt;center&gt; is an incorrect tag to use for centering text, changed to inline CSS within a &lt;p&gt; element, as no external CSS file is present.</li>
+            <li>Missing style tag for &lt;p&gt; bgcolor, plus incorrect formatting; added style tag around bgcolor and renamed to background-color</li>
+            <li>Unclosed comment; added closing tag to comment.</li>
+            <li>Link (&lt;a&gt;) is missing closing tag; added closing &lt;/a&gt; tag.</li>
+            <li>&lt;em&gt; and &lt;p&gt; tags are not in the correct order. Adjusting to &lt;p&gt;&lt;em&gt;...&lt;em&gt;&lt;p&gt;.</li>
+            <li>&lt;em&gt; tag is incorrect for underlined text, changed to &lt;u&gt;.</li>
+            <li>&lt;li&gt; tags are incorrect for a discriptive list, changing to &lt;dt&gt; and &lt;dd&gt; for the title and description respectively.</li>
+        </ol>
     </body>
 </html>
-
-
-<!-- 
-    I found more than 20 errors, but since they generally seemed distinct enough to not be combined further, I thought it was fine to leave as-is. :)
-    Errors Fixed:
-    1 - Missing <!DOCTYPE html>; added to the top of the page.
-    2 - Missing <meta charset="UTF-8">; added charset meta element.
-    3 - Duplicate HTML head opening tags; removed first one with missing lang tag.
-    4 - Language tag is incorrect; changing to lang instead.
-    5 - html tag with lang is inside head; moved to outside head.
-    6 - duplicate HTML closing tag; removing first tag attached to opening html tag.
-    7 - Missing Viewport element; added viewport meta element.
-    8 - Missing head closing tag; added head closing tag underneath the title
-    9 - Missing <h1> closing tag; added closing tag.
-    10 - Missing <p> opening tag; added opening tag.
-    11 - <ol> tag is closed by a </ul> tag, changing closing tag to </ol>.
-    12 - <missing </p> closing tag; added closing tag.
-    13 - <img> tag missing alt text; added alt text.
-    14 - Because of the target="_blank" attrubute; rel="noopener" is needed; Added.
-    15 - <a> tag is closed by an </img> tag; replacing with </a> tag.
-    16 - Table is missing <thead> and <tbody> attributes; added <thead> and <tbody> opening/closing tags.
-    17 - Table is missing closing tag; added closing tag.
-    18 - Source Tag is incorrect for images; changed to src.
-    19 - <center> is an incorrect tag to use for centering text, changed to inline CSS within a <p> element, as no external CSS file is present.
-    20 - Missing style tag for <p> bgcolor, incorrect formatting. Added style tag around bgcolor and renamed to background-color
-    21 - Unclosed comment, Added closing tag to comment.
-    22 - Link is missing closing tag. Added closing </a> tag
-    23 - <em> and <p> tags are not in the correct order. Adjusting to <p><em>...<em><p>
-    24 - <em> tag is incorrect for underlined text, changed to <u>
-    25 - <li> tags are incorrect for a discriptive list, changing to <dt> and <dd> for the title and description respectively.
--->
