@@ -19,7 +19,7 @@ html {
     height: auto;
 }
 
-.overlay {
+.score-overlay {
     position: absolute;
     margin: 3rem;
     color: white;
@@ -74,4 +74,21 @@ html {
     color: white;
     font-size: 1.5em;
     padding: 0.5em;
+}
+
+.fox-overlay {
+    position: absolute;
+    right: 1rem;
+    font-size: 2rem;
+    display: flex;
+    text-align: right;
+    color: white;
+    text-shadow: 0.1rem 0.1rem 0.1rem black;
+}
+
+.fox-overlay h1 {
+    border-left: 0.5rem solid white;
+    padding: 1rem;
+    margin: 3rem;
+    font-size: 10rem
 }
