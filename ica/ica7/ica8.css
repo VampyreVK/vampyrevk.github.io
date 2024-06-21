@@ -1,0 +1,42 @@
+body{
+    background-color: khaki;
+    margin: 10px;
+}
+#box1{
+    width: 25vw;
+    height: 20vh;
+    background-color: indianred;
+    transition:  0.5s ease-in-out;
+}
+
+#box1:hover{
+    background-color: purple;
+}
+
+#box2{
+    width: 25vw;
+    height:20vh;
+    position: absolute;
+    margin-top: 10px;
+    background-color: orangered;
+    transition: all 0.5s ease-in-out;
+    animation: box2move 5s infinite;
+}
+
+
+@keyframes box2move{
+    
+    25%
+    {
+        transform: translate(calc(100vw - 100% - 20px), 0);
+    }
+    50%
+    {
+        transform: translate(calc(100vw - 100% - 20px), calc(75vh - 100% - 10px));
+    }
+
+    75%
+    {
+        transform: translate(0, calc(75vh - 100% - 10px));
+    }
+}
