@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lato&display=swap');
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F0EFF4;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body:hover #red-ball{
+    transform: translateX(0);
+}
+body:hover h1{
+    animation: text-slide-in 3.75s ease-out;
+    color: black;
+    transition: color 0s ease-in;
+}
+body:not(hover) h1 {
+    animation: text-slide-out 3.75s ease-out;
+    color: #F0EFF4;
+    transition: color 0s ease-in  3.75s;
+}
+
+nav{
+    height: 50vh;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height:20px;
+    background-color: #3D2645;
+}
+nav a{
+    width:10vw;
+    text-align: center;
+    text-decoration: none;
+    color:#F0EFF4;
+}
+
+h1 {
+    font-family: 'Dancing Script', regular;
+    color: black;
+}
+
+img{
+    width:30vw;
+    height: 30vh;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+}
+
+#red-ball{
+    background-color: #832161;
+    width: 20px;
+    height:20px;
+    border-radius: 50%;
+    margin: 5px;
+    position: relative;
+    top: 0.25em;
+    transform: translateX(-100vw);
+    transition: transform 3.75s ease-out;
+}
+
+@keyframes text-slide-in{
+    0%
+    {
+        clip-path: inset(0 100vw 0 0);
+    }
+    100%
+    {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes text-slide-out{
+    0%
+    {
+        clip-path: inset(0 0 0 0);
+    }
+    100%
+    {
+        clip-path: inset(0 100vw 0 0);
+    }
+}
