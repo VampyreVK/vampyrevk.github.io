@@ -1,0 +1,125 @@
+:root {
+    --main-color: #d5ac4e;
+    --accent-color: #696d7d;
+    --color-complement: #8b6220;
+    --text-color: #000000;
+    --bg-color: #ffffff;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: medium;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color)
+}
+
+a:hover {
+    color: var(--color-complement);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    margin: 0em;
+    background-color: var(--main-color);
+}
+
+header h1 {
+    color: var(--text-color);
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+header img {
+    width: 3em;
+    height: auto;
+    margin-right: 1rem;
+    margin-left: 1em;
+    margin-bottom: 0;
+}
+
+#main-landing-image {
+    width: 100%;
+    height: auto;
+}
+
+#overview {
+    margin: -0.3em;
+}
+
+#overview h2 {
+    background-color: var(--accent-color);
+    
+}
+
+#overview h2, #overview h4 {
+    color: var(--text-color);
+    padding: 1em;
+    margin: 0;
+}
+
+.concerts h2 {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    padding: 1em;
+    margin: 0;
+    text-align: center;
+}
+.concerts h3 {
+    color: var(--text-color);
+    padding: 1em;
+    margin: 0;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.concerts p {
+    padding: 1em;
+}
+
+
+.concerts dl dt {
+    padding: 1em;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+
+@media screen and (max-width: 800px) {
+    header h1{
+        font-size: 1em;
+    }
+
+    header img {
+        width: 2em;
+    }
+    
+    .concerts {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (min-width: 800px) {
+    .concerts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 2em;
+        gap: 2em;
+    }
+    
+    .concerts div {
+        border: 0.25em solid var(--color-complement);
+        display: flexbox;
+    }
+}
