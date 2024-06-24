@@ -8,14 +8,14 @@
 
 body {
     font-family: "Roboto", sans-serif;
-    font-size: medium;
+    font-size: large;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
 }
 
 a {
-    text-decoration: none;
+    
     color: var(--accent-color)
 }
 
@@ -58,7 +58,7 @@ header img {
 }
 
 #overview h2 {
-    background-color: var(--accent-color);
+    background-color: var(--main-color);
     
 }
 
@@ -68,6 +68,10 @@ header img {
     margin: 0;
 }
 
+
+.concerts {
+    transition: all 0.5s;
+}
 .concerts h2 {
     background-color: var(--main-color);
     color: var(--text-color);
@@ -85,16 +89,59 @@ header img {
 
 .concerts p {
     padding: 1em;
+    
 }
-
 
 .concerts dl dt {
     padding: 1em;
     text-decoration: underline;
+
     font-weight: bold;
     font-size: x-large;
 }
 
+dd {
+    display: list-item;
+    list-style-type: disc;
+    }
+
+dd > ul {
+    list-style-type: circle;
+    padding-left: 2em;
+}
+
+button {
+    display: block;
+    margin: 10px auto; 
+    padding: 8px; 
+    cursor: pointer; 
+    background-color: var(--accent-color); 
+    color: white; 
+    font-size: 15px; 
+}
+
+.content {
+    display: none;
+}
+
+footer {
+    background-color: var(--main-color);
+    padding: 1em
+}
+
+#to-top {
+    position: fixed;
+    border-radius: 2em;
+    width: 2em;
+    height: 2em;
+    bottom: 1em;
+    right: 1em;
+    align-items: center;
+}
+
+#to-top:hover {
+    transform: scaleX(auto);
+}
 
 @media screen and (max-width: 800px) {
     header h1{
@@ -113,13 +160,19 @@ header img {
 @media screen and (min-width: 800px) {
     .concerts {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr ;
         margin: 2em;
         gap: 2em;
     }
     
-    .concerts div {
+    .concerts > div {
         border: 0.25em solid var(--color-complement);
         display: flexbox;
     }
+
+    .content > dl {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
 }
