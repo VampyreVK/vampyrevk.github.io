@@ -33,7 +33,7 @@ header {
     align-items: center;
     padding: 1em;
     margin: 0em;
-    background-color: var(--main-color);
+    background: linear-gradient(to bottom, var(--main-color), var(--color-complement));
 }
 
 header h1 {
@@ -61,7 +61,7 @@ header img {
 }
 
 #overview h2 {
-    background-color: var(--main-color);
+    background: var(--main-color)
 }
 
 #overview h2,
@@ -111,6 +111,7 @@ dd > ul {
 button {
     display: block;
     margin: 10px auto;
+    border-radius: 0.5em;
     padding: 8px;
     cursor: pointer;
     background-color: var(--accent-color);
@@ -130,7 +131,7 @@ button {
     max-height: 0px;
 }
 footer {
-    background-color: var(--main-color);
+    background: linear-gradient(to bottom, var(--main-color), var(--color-complement));
     padding: 1em;
 }
 
@@ -149,7 +150,6 @@ footer {
 }
 #to-top-text {
     opacity: 0;
-    
 }
 
 #to-top:hover {
@@ -167,7 +167,7 @@ footer {
 }
 .grow {
     animation: content-grow 0.5s ease-in-out;
-    transition: max-height 0.5s ease-in-out;
+    
 }
 
 @keyframes content-shrink {
@@ -192,6 +192,7 @@ footer {
     }
 }
 
+
 @media screen and (max-width: 800px) {
     header h1 {
         font-size: 1em;
@@ -212,11 +213,17 @@ footer {
         grid-template-columns: 1fr;
         margin: 2em;
         gap: 2em;
+        
     }
 
     .concerts > div {
-        border: 0.25em solid var(--color-complement);
+        border: 0.25em solid var(--main-color);
+        border-radius: 0.5em;
         display: flexbox;
+    }
+
+    .concerts > div > h2 {
+        border-radius: 0.1em 0.1em 0 0;
     }
 
     .content > dl {
