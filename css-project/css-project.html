@@ -8,8 +8,10 @@
     <title>Css Project</title>
 </head>
 <body>
-    <button id="to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
-    <span id="to-top-text">Back to Top</span>
+    <button id="to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <span id="to-top-arrow">⇡</span>
+        <span id="to-top-text">Back to Top</span>
+    </button>
     <header>
         <img src="img/colorado-symphony-logo.png" alt="Colorado Symphony Logo">
         <h1>Colorado Symphony Classics 2022-2023</h1>
@@ -28,6 +30,7 @@
         <div>
             <h2>Vivaldi's The Four Seasons</h2>
             <h3>OCT14-16 FRI-SAT 7:30 SUN 1:00</h3>
+            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
             <div class ="content">
                 <p>Symphonic bliss awaits you as your Colorado Symphony and guest conductor Aram Demirjian present a
                     powerhouse program highlighted by Vivaldi's programmatic masterpiece, The Four Seasons. As striking
@@ -55,11 +58,11 @@
                     </div>
                 </dl>
             </div>
-        <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
         </div>
         <div>
             <h2>Beethoven Symphony No. 3 with Peter Oundjian</h2>
             <h3>NOV 4-6 FRI-SAT 7:30 SUN 1:00</h3>
+            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
             <div class ="content">
                 <p>History is replete with turning points and with the completion of his revolutionary Third Symphony,
                     Beethoven forever changed the idea of what a symphony could be. A clear bridging of the Classical and
@@ -88,11 +91,11 @@
                     </div>
                 </dl>
             </div>
-            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
         </div>
         <div>
             <h2>Tchaikovsky Piano Concerto No. 1 with Olga Kern</h2>
             <h3>DEC 2-4 FRI-SAT 7:30 SUN 1:00</h3>
+            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
             <div class ="content">
                 <p>Peter Ilyich Tchaikovsky — so highly regarded for his symphonic compositions — placed himself among
                     the greats of the keyboard with the completion of his First Piano Concerto. The work is filled with
@@ -117,11 +120,11 @@
                     </div>
                 </dl>
             </div>
-            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
         </div>
         <div>
             <h2>Ravel's Daphnis et Chloé</h2>
             <h3>JAN13-15 FRI-SAT 7:30 SUN 1:00</h3>
+            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
             <div class ="content">
                 <p>Be still my heart! A whirling celebration of pagan love awaits listeners with Ravel's <em>Daphnis et Chloé</em>,
                     which he called a “symphonie chorégraphique” rather than a ballet, reflecting a sense of powerful,
@@ -150,11 +153,11 @@
                     </div>
                 </dl>
             </div>
-            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
         </div>
         <div>
             <h2>Beethoven Symphony No. 8</h2>
             <h3>FEB 10-12 FRI-SAT 7:30 SUN 1:00</h3>
+            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
             <div class ="content">
                 <p>Beethoven's Eighth — which he referred to as “my little Symphony in F,”— is the most cheery, joyful,
                     and experimental of his symphonies. Its relatively compact scale allowed Beethoven to be more
@@ -189,11 +192,11 @@
                     </div>
                 </dl>
             </div>
-            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
         </div>
         <div>
             <h2>Beethoven's Emperor Concerto</h2>
             <h3>February 24-26 FRI-SAT 730 SUN 1</h3>
+            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
             <div class ="content">
                 <p>One of the most accomplished of all piano works, Beethoven's “Emperor” Concerto features a striking
                     opening movement and a glorious finale, with beauty and virtuosic style throughout that makes it one of
@@ -219,11 +222,11 @@
                     </div>
                 </dl>
             </div>
-            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
         </div>
         <div>
             <h2>Bartók Concerto for Orchestra</h2>
             <h3>March 10th-12th FRI-SAT 7:30 SUN 1:00</h3>
+            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
             <div class="content">
                 <p>One of the foremost conductors of his generation, Alexander Shelley joins your Colorado Symphony for a
                     program that will leave you simply spellbound. Spanish composer Joaquín Rodrigo's classical guitar
@@ -249,11 +252,11 @@
                     </div>
                 </dl>
             </div>
-            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
         </div>
         <div>
             <h2>Brahms Requiem with Peter Oundjian</h2>
             <h3>Mar 24-26 FRI-SAT 7:30 SUN 1:00</h3>
+            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
             <div class ="content">
                 <p>Unlike other Requiem Masses, Brahms '<em>A German Requiem</em> is not primarily a Mass for the dead. Instead,
                     it is intended as comfort and solace for those left behind as they mourn the death of others. Confronting
@@ -284,11 +287,11 @@
                     </div>
                 </dl>
             </div>
-            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
         </div>
         <div>
             <h2>Beethoven Violin Concerto</h2>
             <h3>Apr 21-23 Fri & Sat 7:30 Sunday 1:00</h3>
+            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
             <div class ="content">
             <p>Join your Colorado Symphony and Principal Conductor Peter Oundjian in welcoming acclaimed soloist
                 and 2021 Gramophone Artist of the Year, James Ehnes, to Boettcher Concert Hall for a reinvigoration of
@@ -313,7 +316,6 @@
                 </div>
                 </dl>
             </div>
-            <button class="learnmore" onclick="toggleConcertDisplay(this)">Learn More</button>
         </div>
     </div>
     <footer>
@@ -331,13 +333,21 @@
 <script>
     function toggleConcertDisplay(learnMoreButton) {
         var content = learnMoreButton.parentElement.querySelector('div.content');
-        if (content.style.display === 'none' || content.style.display === '') {
-            content.style.display = 'block';
-            learnMoreButton.textContent = "Close";
-        } else {
-            content.style.display = 'none';
-            learnMoreButton.textContent = "Learn More";
-        }
         
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+            learnMoreButton.textContent = "Close";
+            content.classList.remove("shrink");
+            content.classList.add("grow");
+            
+        } else {
+            learnMoreButton.textContent = "Learn More";
+            content.classList.remove("grow");
+            content.classList.add("shrink");
+            setTimeout((function() {
+                content.style.display = "none";
+            }), 490);
+        }
     }
+    
 </script>

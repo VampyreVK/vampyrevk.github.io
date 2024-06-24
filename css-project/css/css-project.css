@@ -14,9 +14,12 @@ body {
     margin: 0;
 }
 
+div {
+    transition: all 0.5s ease-in-out;
+}
+
 a {
-    
-    color: var(--accent-color)
+    color: var(--accent-color);
 }
 
 a:hover {
@@ -59,19 +62,15 @@ header img {
 
 #overview h2 {
     background-color: var(--main-color);
-    
 }
 
-#overview h2, #overview h4 {
+#overview h2,
+#overview h4 {
     color: var(--text-color);
     padding: 1em;
     margin: 0;
 }
 
-
-.concerts {
-    transition: all 0.5s;
-}
 .concerts h2 {
     background-color: var(--main-color);
     color: var(--text-color);
@@ -89,7 +88,6 @@ header img {
 
 .concerts p {
     padding: 1em;
-    
 }
 
 .concerts dl dt {
@@ -103,7 +101,7 @@ header img {
 dd {
     display: list-item;
     list-style-type: disc;
-    }
+}
 
 dd > ul {
     list-style-type: circle;
@@ -112,46 +110,97 @@ dd > ul {
 
 button {
     display: block;
-    margin: 10px auto; 
-    padding: 8px; 
-    cursor: pointer; 
-    background-color: var(--accent-color); 
-    color: white; 
-    font-size: 15px; 
+    margin: 10px auto;
+    padding: 8px;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 15px;
 }
 
 .content {
     display: none;
+    overflow: hidden;
+    max-height: 1000px;
+    transition: max-height 0.5s ease-in-out;
 }
 
+.open {
+    transition: max-height 0.5s ease-in-out;
+    max-height: 0px;
+}
 footer {
     background-color: var(--main-color);
-    padding: 1em
+    padding: 1em;
 }
 
 #to-top {
     position: fixed;
-    border-radius: 2em;
-    width: 2em;
-    height: 2em;
+    border-radius: 3em;
+    width: 2.5em;
+    height: 2.5em;
     bottom: 1em;
     right: 1em;
     align-items: center;
+    vertical-align: center;
+    transition: width 0.5s;
+    overflow: hidden;
+    
+}
+#to-top-text {
+    opacity: 0;
+    
 }
 
 #to-top:hover {
-    transform: scaleX(auto);
+    width: 10em;
+}
+#to-top:hover #to-top-text {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out 0.25s;
+}
+
+
+.shrink {
+    animation: content-shrink 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
+}
+.grow {
+    animation: content-grow 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
+}
+
+@keyframes content-shrink {
+    from {
+        max-height: auto;
+        opacity: 1;
+    }
+    to {
+        max-height: 0;
+        opacity: 0;
+    }
+}
+@keyframes content-grow {
+    from {
+        max-height: 0;
+        opacity: 0;
+        display:none;
+    }
+    to {
+        max-height: auto;
+        opacity: 1;
+    }
 }
 
 @media screen and (max-width: 800px) {
-    header h1{
+    header h1 {
         font-size: 1em;
     }
 
     header img {
         width: 2em;
     }
-    
+
     .concerts {
         display: grid;
         grid-template-columns: 1fr;
@@ -160,11 +209,11 @@ footer {
 @media screen and (min-width: 800px) {
     .concerts {
         display: grid;
-        grid-template-columns: 1fr ;
+        grid-template-columns: 1fr;
         margin: 2em;
         gap: 2em;
     }
-    
+
     .concerts > div {
         border: 0.25em solid var(--color-complement);
         display: flexbox;
@@ -174,5 +223,4 @@ footer {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-    
 }
