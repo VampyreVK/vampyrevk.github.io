@@ -58,16 +58,15 @@
 
             const cursorDistanceX = buttonCenterX - cursorX;
             const cursorDistanceY = buttonCenterY - cursorY;
-
-            const distance = Math.sqrt(cursorDistanceX * cursorDistanceX + cursorDistanceY * cursorDistanceY);
+            const absoluteDistance = Math.sqrt(cursorDistanceX * cursorDistanceX + cursorDistanceY * cursorDistanceY);
 
             positionText.innerText = "Cursor Position: " + parseInt(cursorX) + ", " + parseInt(cursorY);
-            distanceText.innerText = "Distance: " + parseInt(distance);
+            distanceText.innerText = "Distance: " + parseInt(absoluteDistance);
 
-            if (distance < 100) {
+            if (absoluteDistance < 100) {
                 const angle = Math.atan2(cursorDistanceY, cursorDistanceX);
-                let updatedX = buttonBox.left + (Math.cos(angle) * (100 - distance));
-                let updatedY = buttonBox.top + (Math.sin(angle) * (100 - distance));
+                let updatedX = buttonBox.left + (Math.cos(angle) * (100 - absoluteDistance));
+                let updatedY = buttonBox.top + (Math.sin(angle) * (100 - absoluteDistance));
 
                 if (updatedX < 0)
                 {
