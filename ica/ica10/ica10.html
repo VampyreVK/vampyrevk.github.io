@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICA10</title>
+    <link rel="stylesheet" href="ica10.css">
+</head>
+<body>
+    <div id="stats">
+        <span id="positionText">Cursor Position:</span>
+        </br>
+        <span id="distanceText">Distance:</span>
+        </br>
+        <span id="ballPositionText">Ball Position:</span>
+    </div>
+    <button id="cantClick">Click Me</button>
+    <audio id="cheering" src="Kids-Cheering-Sound-Effect.mp3"></audio>
+
+
+    <!-- Used https://github.com/catdad/canvas-confetti-->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        document.addEventListener("mousemove", moveBall);
+        document.getElementById("cantClick").addEventListener("click", buttonClick);
+
+        function buttonClick(){
+            const cheering = document.getElementById("cheering");
+            const button = document.getElementById("cantClick");
+
+            const buttonBox = button.getBoundingClientRect();
+            const buttonCenterX = buttonBox.left + buttonBox.width / 2;
+            const buttonCenterY = buttonBox.top + buttonBox.height / 2;
+
+            cheering.play();
+
+            confetti({
+                particleCount: 100,
+                spread: 360,
+                startVelocity: 30,
+                origin: { x: buttonCenterX / window.innerWidth, y: buttonCenterY / window.innerHeight}
+            });
+        };
+        
+        function moveBall(){
+            const positionText = document.getElementById("positionText");
+            const distanceText = document.getElementById("distanceText");
+            const ballPositionText = document.getElementById("ballPositionText");
+            const button = document.getElementById("cantClick");
+
+            const cursorX = event.clientX;
+            const cursorY = event.clientY;
+
+            const buttonBox = button.getBoundingClientRect();
+            const buttonCenterX = buttonBox.left + buttonBox.width / 2;
+            const buttonCenterY = buttonBox.top + buttonBox.height / 2;
+
+            const cursorDistanceX = buttonCenterX - cursorX;
+            const cursorDistanceY = buttonCenterY - cursorY;
+
+            const distance = Math.sqrt(cursorDistanceX * cursorDistanceX + cursorDistanceY * cursorDistanceY);
+
+            positionText.innerText = "Cursor Position: " + parseInt(cursorX) + ", " + parseInt(cursorY);
+            distanceText.innerText = "Distance: " + parseInt(distance);
+
+            if (distance < 100) {
+                const angle = Math.atan2(cursorDistanceY, cursorDistanceX);
+                let updatedX = buttonBox.left + (Math.cos(angle) * (100 - distance));
+                let updatedY = buttonBox.top + (Math.sin(angle) * (100 - distance));
+
+                if (updatedX < 0)
+                {
+                    updatedX = 0;
+                }
+
+                if (updatedY < 0)
+                {
+                    updatedY = 0;
+                }
+                
+                if (updatedX + buttonBox.width > window.innerWidth)
+                {
+                    updatedX = window.innerWidth - buttonBox.width;
+                }
+
+                if (updatedY + buttonBox.height > window.innerHeight) 
+                {
+                    updatedY = window.innerHeight - buttonBox.height;
+                }
+                
+                ballPositionText.innerText = "Ball Position: " + parseInt(updatedX) + ", " + parseInt(updatedY);
+                button.style.left = updatedX + "px";
+                button.style.top = updatedY + "px";
+            }
+        };
+
+    </script>
+</body>
+</html>
