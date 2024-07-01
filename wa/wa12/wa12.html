@@ -5,15 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="wa12.css">
-    <title>Random Christmas Trivia Extended</title>
+    <title>Random Tech Trivia Extended</title>
     
 </head>
 <body>
     <div class="app">
-        <header>Random Christmas Trivia</header>
+        <header>
+          <h4>Random Tech Trivia</h4>
+        </header>
         <section class="quotes">
           <div class="quote-text" id="js-quote-text"></div>
-          <div class="quote-text" id="js-answer-text"></div>
+          <div class="quote-text" id="js-answer-text">
+            <ul>
+
+            </ul>
+          </div>
         </section>
         <section class="controls" >
           <button type="button" id="js-new-quote" class="new-quote button">
@@ -22,6 +28,18 @@
           <button type="button" id="js-tweet" class="twitter button">
             Show me the answer!
           </button>
+          <div id="changelog">
+            <button id="js-changelog-button" class="button">Show Changelog</button>
+            <ul>
+              <li>Updated to use the Open Trivia Database API.</li>
+              <li>Added support for multiple choice questions, with correct and incorrect answers displayed together in a random order.</li>
+              <li>Added support for T/F and 4 option answers.</li>
+              <li>Adjusted the display of the result, and made it such that the correct answer is now highlighted green.</li>
+              <li>Requests questions and answers in batches of 10 to save on API calls.</li>
+              <li>Added visible error message if requests are made too fast.</li>
+              <li>Added changelog button to the app.</li>
+            </ul>
+          </div>
           <!-- <a class="answer button" id="js-tweet" target="_blank" rel="noreferrer">Show me the answer!</a> -->
         </section>
       </div>

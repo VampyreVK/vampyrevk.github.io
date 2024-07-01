@@ -12,7 +12,7 @@ html {
   
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    background-color: #c9bd95;
+    background-color: #95c9c9;
   }
   
   .app {
@@ -27,11 +27,18 @@ html {
   }
   
   header {
+    display: flex;
     width: 100%;
     font-size: 30px;
     text-align: center;
     padding: 10px;
     border-bottom: 1px solid #ebebeb;
+    justify-content: center;
+  }
+
+  header h1 {
+    width: 100%;
+    text-align: center;
   }
   
   .quotes {
@@ -62,14 +69,29 @@ html {
     font-size: 20px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
   }
-  
+  .correct-answer {
+    color: green;
+    font-weight: bold;
+  }
   .twitter {
     background-color: #1da1f2;
     text-decoration: none;
+    margin-bottom: 15px;
   }
   
   .twitter:hover {
     background-color: #1e7fbb;
+  }
+
+  #js-changelog-button {
+    color: black;
+    right: 0.5em;
+    margin-left: auto;
+  }
+  
+  #changelog ul {
+    margin-top: 15px;
+    display: none;
   }
   
   .new-quote {
