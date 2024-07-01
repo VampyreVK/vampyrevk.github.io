@@ -15,11 +15,11 @@ const fileNames = [
 
 /* Declaring the alternative text for each image file */
 const altText = [
-    "eyeball",
-    "abstract art",
-    "white and purple flowers",
-    "egyptian art",
-    "butterfly",
+    "Bedroom",
+    "Couch",
+    "Dining Area",
+    "Living Room",
+    "Kitchen",
 ];
 
 /* Looping through images */
