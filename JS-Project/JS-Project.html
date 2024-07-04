@@ -104,12 +104,12 @@
                     const ballA = balls[i].getBoundingClientRect();
                     const ballB = balls[j].getBoundingClientRect();
 
-                    const dx = (ballA.left + ballA.width / 2) - (ballB.left + ballB.width / 2);
-                    const dy = (ballA.top + ballA.height / 2) - (ballB.top + ballB.height / 2);
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    const distanceX = (ballA.left + ballA.width / 2) - (ballB.left + ballB.width / 2);
+                    const distanceY = (ballA.top + ballA.height / 2) - (ballB.top + ballB.height / 2);
+                    const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
 
                     if (distance < ballA.width) {
-                        const angle = Math.atan2(dy, dx);
+                        const angle = Math.atan2(distanceY, distanceX);
                         const overlap = ballA.width - distance;
 
                         const updatedAX = ballA.left + Math.cos(angle) * overlap / 2;
