@@ -26,8 +26,49 @@
             let ball = document.createElement("button");
             ball.id = "ball" + i;
             ball.classList.add("balls");
-            ball.style.left = Math.random() * (window.innerWidth - 50) + "px";
-            ball.style.top = Math.random() * (window.innerHeight - 50) + "px";
+            switch(i) {
+                case 1:
+                    ball.style.left = (window.innerWidth / 2 - 110) + "px";
+                    ball.style.top = (window.innerHeight  / 2 - 110) + "px";
+                break;
+                case 2:
+                    ball.style.left = (window.innerWidth / 2 - 50) + "px";
+                    ball.style.top = (window.innerHeight  / 2 - 110) + "px";
+                    break;
+                case 3:
+                    ball.style.left = (window.innerWidth / 2 + 10) + "px";
+                    ball.style.top = (window.innerHeight  / 2 - 110) + "px";
+                    break;
+                case 4:
+                    ball.style.left = (window.innerWidth / 2 - 110) + "px";
+                    ball.style.top = (window.innerHeight  / 2 - 50) + "px";
+                    break;
+                case 5:
+                    ball.style.left = (window.innerWidth / 2 - 50) + "px";
+                    ball.style.top = (window.innerHeight  / 2 - 50) + "px";
+                    break;
+                case 6:
+                    ball.style.left = (window.innerWidth / 2 + 10) + "px";
+                    ball.style.top = (window.innerHeight  / 2 -50) + "px";
+                    break;
+                case 7:
+                    ball.style.left = (window.innerWidth / 2 - 110) + "px";
+                    ball.style.top = (window.innerHeight  / 2 + 10) + "px";
+                    break;
+                case 8:
+                    ball.style.left = (window.innerWidth / 2 - 50) + "px";
+                    ball.style.top = (window.innerHeight  / 2 + 10) + "px";
+                    break;
+                case 9:
+                    ball.style.left = (window.innerWidth / 2 + 10) + "px";
+                    ball.style.top = (window.innerHeight  / 2 + 10) + "px";
+                    break;
+                case 0:
+                    ball.style.left = (window.innerWidth / 2 - 50) + "px";
+                    ball.style.top = (window.innerHeight  / 2 + 70) + "px";
+                    break;
+            }
+            
             ball.textContent = i;
             ball.addEventListener("click", () => buttonClick(i));
             document.body.appendChild(ball);
