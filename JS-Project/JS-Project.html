@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Project</title>
+    <link rel="stylesheet" href="JS-Project.css">
+</head>
+<body>
+    <div id="phone-number">
+        <span>Phone Number:</span>
+        <span id="phone-text"></span>
+    </div>
+    <audio id="cheering" src="Kids-Cheering-Sound-Effect.mp3"></audio>
+    <!-- Used https://github.com/catdad/canvas-confetti-->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        document.addEventListener("mousemove", (event) => {
+            const balls = document.querySelectorAll(".balls");
+            balls.forEach(ball => moveBall( ball));
+            detectCollisions(balls);
+        });
+        
+        for (let i = 0; i < 10; i++) {
+            let ball = document.createElement("button");
+            ball.id = "ball" + i;
+            ball.classList.add("balls");
+            ball.style.left = Math.random() * (window.innerWidth - 50) + "px";
+            ball.style.top = Math.random() * (window.innerHeight - 50) + "px";
+            ball.textContent = i;
+            ball.addEventListener("click", () => buttonClick(i));
+            document.body.appendChild(ball);
+        }
+
+        function buttonClick(num){
+            let text = document.getElementById("phone-text").textContent;
+            if(text.length >= 14) {
+                return;
+            }
+            text += num;
+            if(text.length === 1) {
+                text = "(" + text;
+            }
+            if(text.length === 4) {
+                text += ") ";
+            }
+            if(text.length === 9) {
+                text += "-";
+            }
+            if (text.length === 14) {
+                document.getElementById("cheering").play();
+                confetti();
+            }
+            document.getElementById("phone-text").textContent = text;
+        };
+        
+        function moveBall(button){
+            const phonenumber = document.getElementById("phone-number");
+
+            const cursorX = event.clientX;
+            const cursorY = event.clientY;
+
+            const buttonBox = button.getBoundingClientRect();
+            const buttonCenterX = buttonBox.left + buttonBox.width / 2;
+            const buttonCenterY = buttonBox.top + buttonBox.height / 2;
+
+            const cursorDistanceX = buttonCenterX - cursorX;
+            const cursorDistanceY = buttonCenterY - cursorY;
+            const absoluteDistance = Math.sqrt(cursorDistanceX * cursorDistanceX + cursorDistanceY * cursorDistanceY);
+
+            if (absoluteDistance < 100) {
+                const angle = Math.atan2(cursorDistanceY, cursorDistanceX);
+                let updatedX = buttonBox.left + (Math.cos(angle) * (100 - absoluteDistance));
+                let updatedY = buttonBox.top + (Math.sin(angle) * (100 - absoluteDistance));
+                
+                if (updatedX < 0)
+                {
+                    updatedX = 0;
+                }
+
+                if (updatedY < 0)
+                {
+                    updatedY = 0;
+                }
+                
+                if (updatedX + buttonBox.width > window.innerWidth)
+                {
+                    updatedX = window.innerWidth - buttonBox.width;
+                }
+
+                if (updatedY + buttonBox.height > window.innerHeight) 
+                {
+                    updatedY = window.innerHeight - buttonBox.height;
+                }
+                button.style.left = updatedX + "px";
+                button.style.top = updatedY + "px";
+            }
+        };
+
+        function detectCollisions(balls) {
+            for (let i = 0; i < balls.length; i++) {
+                for (let j = i + 1; j < balls.length; j++) {
+                    const ballA = balls[i].getBoundingClientRect();
+                    const ballB = balls[j].getBoundingClientRect();
+
+                    const dx = (ballA.left + ballA.width / 2) - (ballB.left + ballB.width / 2);
+                    const dy = (ballA.top + ballA.height / 2) - (ballB.top + ballB.height / 2);
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < ballA.width) {
+                        const angle = Math.atan2(dy, dx);
+                        const overlap = ballA.width - distance;
+
+                        const updatedAX = ballA.left + Math.cos(angle) * overlap / 2;
+                        const updatedAY = ballA.top + Math.sin(angle) * overlap / 2;
+                        const updatedBX = ballB.left - Math.cos(angle) * overlap / 2;
+                        const updatedBY = ballB.top - Math.sin(angle) * overlap / 2;
+
+                        if (updatedAX > 0 && updatedAX + ballA.width < window.innerWidth) {
+                            balls[i].style.left = updatedAX + "px";
+                        }
+                        if (updatedAY > 0 && updatedAY + ballA.height < window.innerHeight) {
+                            balls[i].style.top = updatedAY + "px";
+                        }
+                        if (updatedBX > 0 && updatedBX + ballB.width < window.innerWidth) {
+                            balls[j].style.left = updatedBX + "px";
+                        }
+                        if (updatedBY > 0 && updatedBY + ballB.height < window.innerHeight) {
+                            balls[j].style.top = updatedBY + "px";
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

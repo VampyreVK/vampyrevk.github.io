@@ -1,0 +1,15 @@
+.balls {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: red;
+    color: white;
+    left: 50%;
+    top: 50%;
+}
+#phone-number {
+    position: absolute;
+    width: 100vw;
+    text-align: center;
+}
