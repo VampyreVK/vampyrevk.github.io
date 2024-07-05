@@ -11,6 +11,10 @@
     <div id="phone-number">
         <span>Please enter your phone number:</span>
         <span id="phone-text"></span>
+        <br/>
+        <span>(The buttons are a little shy, please approach with caution)</span>
+        <br/>
+        
     </div>
     <audio id="cheering" src="Kids-Cheering-Sound-Effect.mp3"></audio>
     <!-- Used https://github.com/catdad/canvas-confetti-->
@@ -18,10 +22,18 @@
     <script>
         document.addEventListener("mousemove", (event) => {
             const balls = document.querySelectorAll(".balls");
-            balls.forEach(ball => moveBall( ball));
-            detectCollisions(balls);
+            if(mouseSpeed > 1.5) {
+                clearInterval(ballRun);
+                clearTimeout(stopTimeout);
+                moveTimer(event);
+            }
+            detectCollisions(balls, event);
+            calculateMouseSpeed();
         });
         
+        
+
+
         for (let i = 0; i < 10; i++) {
             let ball = document.createElement("button");
             ball.id = "ball" + i;
@@ -70,11 +82,21 @@
             }
             
             ball.textContent = i;
-            ball.addEventListener("click", () => buttonClick(i));
+            ball.addEventListener("click", (event) => buttonClick(i, event));
             document.body.appendChild(ball);
         }
 
-        function buttonClick(num){
+        let lastMouseX = 0;
+        let lastMouseY = 0;
+        let mouseSpeed = 0;
+        function calculateMouseSpeed() {
+            let speed = Math.sqrt((event.clientX - lastMouseX) * (event.clientX - lastMouseX) + (event.clientY - lastMouseY) * (event.clientY - lastMouseY));
+            lastMouseX = event.clientX;
+            lastMouseY = event.clientY;
+            mouseSpeed = speed;
+        }
+
+        function buttonClick(num, event){
             let text = document.getElementById("phone-text").textContent;
             if(text.length >= 14) {
                 return;
@@ -94,9 +116,24 @@
                 confetti();
             }
             document.getElementById("phone-text").textContent = text;
+            moveTimer(event);
         };
+
+        let ballRun;
+        let stopTimeout;
+        function moveTimer(event) {
+            ballRun = setInterval(() => {
+                const balls = document.querySelectorAll(".balls");
+                balls.forEach(ball => moveBall(ball, event));
+                detectCollisions(balls);
+            }, 10);
+
+            stopTimeout = setTimeout(() => {
+                clearInterval(ballRun);
+            }, 1000);
+        }
         
-        function moveBall(button){
+        function moveBall(button, event){
             const phonenumber = document.getElementById("phone-number");
 
             const cursorX = event.clientX;
@@ -112,8 +149,9 @@
 
             if (absoluteDistance < 100) {
                 const angle = Math.atan2(cursorDistanceY, cursorDistanceX);
-                let updatedX = buttonBox.left + (Math.cos(angle) * (100 - absoluteDistance));
-                let updatedY = buttonBox.top + (Math.sin(angle) * (100 - absoluteDistance));
+                let maxMoveDistance = 5;
+                let updatedX = buttonBox.left + (Math.cos(angle) * (maxMoveDistance));
+                let updatedY = buttonBox.top + (Math.sin(angle) * (maxMoveDistance));
                 
                 if (updatedX < 0)
                 {
@@ -174,6 +212,8 @@
                 }
             }
         }
+        
+        
 
     </script>
 </body>
