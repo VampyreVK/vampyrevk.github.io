@@ -13,3 +13,8 @@
     width: 100%;
     text-align: center;
 }
+
+#hint {
+    display: none;
+    color: red;
+}

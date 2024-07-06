@@ -12,17 +12,20 @@
         <span>Please enter your phone number:</span>
         <span id="phone-text"></span>
         <br/>
-        <span>(The buttons are a little skittish, try not to scare them away)</span>
+        <span>(The buttons are a little skittish, try not to move too fast and scare them away)</span>
         <br/>
+        <span id="hint">Hint: Move the mouse very slowly.</span>
         
     </div>
     <audio id="cheering" src="Kids-Cheering-Sound-Effect.mp3"></audio>
+    <audio id="beep" src="mixkit-game-show-wrong-answer-buzz-950.wav"></audio>
+    <audio id="dialBeep" src="mixkit-beep-1082.wav"></audio>
     <!-- Used https://github.com/catdad/canvas-confetti-->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script>
         document.addEventListener("mousemove", (event) => {
             const balls = document.querySelectorAll(".balls");
-            if(mouseSpeed > 1.5) {
+            if(mouseSpeed > 2) {
                 clearInterval(ballRun);
                 clearTimeout(stopTimeout);
                 moveTimer(event);
@@ -31,13 +34,18 @@
             calculateMouseSpeed();
         });
         
-        
+        function showHint() {
+            const hint = document.getElementById("hint");
+            hint.style.display = "block";
+        }
+        setTimeout(showHint, 15000);
 
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i <= 11; i++) {
             let ball = document.createElement("button");
             ball.id = "ball" + i;
             ball.classList.add("balls");
+            ball.textContent = i;
             switch(i) {
                 case 1:
                     ball.style.left = (window.innerWidth / 2 - 85) + "px";
@@ -79,9 +87,20 @@
                     ball.style.left = (window.innerWidth / 2 - 20) + "px";
                     ball.style.top = (window.innerHeight  / 2 + 70) + "px";
                     break;
+                case 10:
+                    ball.style.left = (window.innerWidth / 2 - 85) + "px";
+                    ball.style.top = (window.innerHeight  / 2 + 70) + "px";
+                    ball.textContent = "⌫";
+                    ball.style.backgroundColor = "red";
+                    break;
+                case 11:
+                    ball.style.left = (window.innerWidth / 2 + 45) + "px";
+                    ball.style.top = (window.innerHeight  / 2 + 70) + "px";
+                    ball.textContent = "✓";
+                    ball.style.backgroundColor = "green";
+                    break;
             }
-            
-            ball.textContent = i;
+
             ball.addEventListener("click", (event) => buttonClick(i, event));
             document.body.appendChild(ball);
         }
@@ -96,24 +115,38 @@
             mouseSpeed = speed;
         }
 
+        let phoneNumber = "";
         function buttonClick(num, event){
-            let text = document.getElementById("phone-text").textContent;
-            if(text.length >= 14) {
+
+            if( num === 10 ) {
+                phoneNumber = phoneNumber.substring(0, phoneNumber.length - 1);
+            } else if (num < 10 && phoneNumber.length < 10) {
+                phoneNumber += num;
+            } else if (num !== 11) {
                 return;
             }
-            text += num;
-            if(text.length === 1) {
+            let text = phoneNumber
+            if(text.length >= 1) {
                 text = "(" + text;
             }
-            if(text.length === 4) {
-                text += ") ";
+            if(text.length >= 4) {
+                text = text.substring(0, 4) + ") " + text.substring(4);
             }
-            if(text.length === 9) {
-                text += "-";
+            if(text.length >= 9) {
+                text = text.substring(0, 9) + "-" + text.substring(9);
             }
-            if (text.length === 14) {
+            if ((text.length >= 14) && num == 11) {
                 document.getElementById("cheering").play();
                 confetti();
+            }
+            if((text.length < 14) && num == 11) {
+                document.getElementById("beep").play();
+                document.getElementById("hint").style.display = "block";
+                document.getElementById("hint").textContent = "Invalid Phone Number";
+            }
+            if(num <= 9) {
+                document.getElementById("dialBeep").play();
+                document.getElementById("hint").style.display = "none";
             }
             document.getElementById("phone-text").textContent = text;
             moveTimer(event);
