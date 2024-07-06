@@ -12,7 +12,7 @@
         <span>Please enter your phone number:</span>
         <span id="phone-text"></span>
         <br/>
-        <span>(The buttons are a little shy, please approach with caution)</span>
+        <span>(The buttons are a little skittish, try not to scare them away)</span>
         <br/>
         
     </div>
@@ -40,43 +40,43 @@
             ball.classList.add("balls");
             switch(i) {
                 case 1:
-                    ball.style.left = (window.innerWidth / 2 - 110) + "px";
+                    ball.style.left = (window.innerWidth / 2 - 85) + "px";
                     ball.style.top = (window.innerHeight  / 2 - 110) + "px";
                 break;
                 case 2:
-                    ball.style.left = (window.innerWidth / 2 - 50) + "px";
+                    ball.style.left = (window.innerWidth / 2 - 20) + "px";
                     ball.style.top = (window.innerHeight  / 2 - 110) + "px";
                     break;
                 case 3:
-                    ball.style.left = (window.innerWidth / 2 + 10) + "px";
+                    ball.style.left = (window.innerWidth / 2 + 45) + "px";
                     ball.style.top = (window.innerHeight  / 2 - 110) + "px";
                     break;
                 case 4:
-                    ball.style.left = (window.innerWidth / 2 - 110) + "px";
+                    ball.style.left = (window.innerWidth / 2 - 85) + "px";
                     ball.style.top = (window.innerHeight  / 2 - 50) + "px";
                     break;
                 case 5:
-                    ball.style.left = (window.innerWidth / 2 - 50) + "px";
+                    ball.style.left = (window.innerWidth / 2 - 20) + "px";
                     ball.style.top = (window.innerHeight  / 2 - 50) + "px";
                     break;
                 case 6:
-                    ball.style.left = (window.innerWidth / 2 + 10) + "px";
+                    ball.style.left = (window.innerWidth / 2 + 45) + "px";
                     ball.style.top = (window.innerHeight  / 2 -50) + "px";
                     break;
                 case 7:
-                    ball.style.left = (window.innerWidth / 2 - 110) + "px";
+                    ball.style.left = (window.innerWidth / 2 - 85) + "px";
                     ball.style.top = (window.innerHeight  / 2 + 10) + "px";
                     break;
                 case 8:
-                    ball.style.left = (window.innerWidth / 2 - 50) + "px";
+                    ball.style.left = (window.innerWidth / 2 - 20) + "px";
                     ball.style.top = (window.innerHeight  / 2 + 10) + "px";
                     break;
                 case 9:
-                    ball.style.left = (window.innerWidth / 2 + 10) + "px";
+                    ball.style.left = (window.innerWidth / 2 + 45) + "px";
                     ball.style.top = (window.innerHeight  / 2 + 10) + "px";
                     break;
                 case 0:
-                    ball.style.left = (window.innerWidth / 2 - 50) + "px";
+                    ball.style.left = (window.innerWidth / 2 - 20) + "px";
                     ball.style.top = (window.innerHeight  / 2 + 70) + "px";
                     break;
             }
@@ -126,7 +126,7 @@
                 const balls = document.querySelectorAll(".balls");
                 balls.forEach(ball => moveBall(ball, event));
                 detectCollisions(balls);
-            }, 10);
+            }, 2);
 
             stopTimeout = setTimeout(() => {
                 clearInterval(ballRun);
@@ -149,7 +149,7 @@
 
             if (absoluteDistance < 100) {
                 const angle = Math.atan2(cursorDistanceY, cursorDistanceX);
-                let maxMoveDistance = 5;
+                let maxMoveDistance = 1;
                 let updatedX = buttonBox.left + (Math.cos(angle) * (maxMoveDistance));
                 let updatedY = buttonBox.top + (Math.sin(angle) * (maxMoveDistance));
                 
